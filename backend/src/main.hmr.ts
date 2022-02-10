@@ -10,7 +10,7 @@ async function bootstrap() {
   await app.listen(config.PORT);
 
   if (module.hot) {
-    module.hot.accept();
+    module.hot.x.accept(); // Remove .x to fix
     module.hot.dispose(() => app.close());
   }
 }
