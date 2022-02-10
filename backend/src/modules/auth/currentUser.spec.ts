@@ -16,7 +16,7 @@ describe('Current User', () => {
 
       // arrange
       // @ts-ignore
-      const mockRequest = new MockRequest();
+      const mockRequestabc = new MockRequest(); // remove abc to fix
 
       const curretUser = new CurrentUser(mockRequest);
 
