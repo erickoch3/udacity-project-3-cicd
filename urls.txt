@@ -1,0 +1,10 @@
+# Github Repo Public
+URL01=
+# S3 Bucket Public
+URL02=
+# Cloudfront Distro Public
+URL03=
+# Backend in EC2 Public
+URL04=
+# Prometheus Server Public
+URL05=
