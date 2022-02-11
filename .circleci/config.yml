@@ -206,11 +206,12 @@ jobs:
             pip3 install --upgrade pip; \
             pip3 install --no-cache-dir awscli;
       - attach_workspace:
-          at: ~/project
+          at: ~/
       - run:
           name: Configure server
           command: |
             pwd; \
+            ls -l; \
             cd .circleci/ansible; \
             cat inventory.txt; \
             export ANSIBLE_HOST_KEY_CHECKING=False; \
