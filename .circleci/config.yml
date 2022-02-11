@@ -205,7 +205,7 @@ jobs:
             pip3 install --upgrade pip; \
             pip3 install --no-cache-dir awscli;
       - attach_workspace:
-          at: /tmp/workspace
+          at: ~/project
       - run:
           name: Configure server
           command: |
