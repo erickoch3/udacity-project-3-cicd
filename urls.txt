@@ -1,5 +1,5 @@
 # Github Repo Public
-URL01=
+URL01=https://github.com/erickoch3/udacity-project-3-cicd
 # S3 Bucket Public
 URL02=
 # Cloudfront Distro Public
