@@ -188,8 +188,7 @@ jobs:
       # Here's where you will add some code to rollback on failure 
       - destroy-environment:
           when: on_fail
-          parameters:
-            workflow_id: "udapeople-frontend-${CIRCLE_WORKFLOW_ID:0:7}.udapeople-backend-${CIRCLE_WORKFLOW_ID:0:7}"
+          workflow_id: "udapeople-frontend-${CIRCLE_WORKFLOW_ID:0:7}.udapeople-backend-${CIRCLE_WORKFLOW_ID:0:7}"
 
 #   configure-infrastructure:
 #     docker:
