@@ -2,7 +2,7 @@
 - name: "Extract Zipped Artifact"
   become: true
   unarchive:
-    src: ~/project/backend.tar.gz
+    src: ~/project/artifact.tar.gz
     dest: /var/lib/backend
 
 - name: "Install node.js backend package"
