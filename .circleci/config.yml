@@ -270,6 +270,8 @@ jobs:
           name: Install dependencies
           command: |
             yum install -y tar gzip
+            curl -sL https://rpm.nodesource.com/setup_10.x | bash -
+            yum install nodejs npm -y
       - attach_workspace:
           at: ~/
       - run:
@@ -309,7 +311,7 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            apk add --update ansible tar gzip python; \
+            apk add --update ansible tar gzip python curl nodejs npm; \
             pip3 install --upgrade pip; \
             pip3 install --no-cache-dir awscli;
       - run:
