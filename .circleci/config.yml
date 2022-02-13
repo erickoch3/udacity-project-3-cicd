@@ -334,13 +334,15 @@ jobs:
   smoke-test:
     docker:
       # Lightweight Docker image
-      - image: circleci/node:13.8.0
+      - image: python:3.7-alpine3.11
     steps:
       # Checkout code from git
       - run:
           name: Install dependencies
           command: |
-            # your code here
+            apk add --update ansible tar gzip python curl; \
+            pip3 install --upgrade pip; \
+            pip3 install --no-cache-dir awscli;
       - run:
           name: Get backend url
           command: |

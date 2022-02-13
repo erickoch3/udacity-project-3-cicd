@@ -1,4 +1,11 @@
 ---
+- name: "Make backend directory"
+  become: true
+  file:
+    path: /var/lib/backend
+    state: directory
+    mode: 0747
+
 - name: "Extract Zipped Artifact"
   become: true
   unarchive:
