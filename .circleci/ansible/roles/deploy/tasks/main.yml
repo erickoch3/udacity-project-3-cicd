@@ -7,14 +7,13 @@
 
 - name: "Install node.js backend package"
   become: true
-  community.general.npm:
-    name: backend
-    path: /var/lib/backend
+  command: npm install
+  args:
+    chdir: /var/lib/backend
 
 - name: "Start the backend with pm2"
   become: true
-  shell: |
-    cd /var/lib/backend
-    pm2 stop default
-    pm2 start npm -- start
+  command: pm2 start npm -- start
+  args:
+    chdir: /var/lib/backend
 
