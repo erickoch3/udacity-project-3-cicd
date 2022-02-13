@@ -1,7 +1,8 @@
 # Github Repo Public
 URL01=https://github.com/erickoch3/udacity-project-3-cicd
-# S3 Bucket Public
-URL02=
+# S3 Bucket Public (Static Website)
+URL02=http://udapeople-633e261.s3-website-us-east-1.amazonaws.com
+URL02.5(index.html)=https://udapeople-633e261.s3.amazonaws.com/index.html
 # Cloudfront Distro Public
 URL03=
 # Backend in EC2 Public
