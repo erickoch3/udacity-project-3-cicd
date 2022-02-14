@@ -20,7 +20,7 @@
 
 - name: "Start the backend with pm2"
   become: true
-  command: pm2 start npm -- start
+  command: pm2 start npm -- run start
   args:
     chdir: /var/lib/backend
 
