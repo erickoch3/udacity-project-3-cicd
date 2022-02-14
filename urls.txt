@@ -8,4 +8,4 @@ URL03=db0c5itczyuxf.cloudfront.net
 # Backend in EC2 Public
 URL04=http://54.174.197.78:3030/api/status
 # Prometheus Server Public
-URL05=
+URL05=http://54.211.72.131:9090/targets
