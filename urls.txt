@@ -1,11 +1,11 @@
 # Github Repo Public
 URL01=https://github.com/erickoch3/udacity-project-3-cicd
 # S3 Bucket Public (Static Website)
-URL02=http://udapeople-633e261.s3-website-us-east-1.amazonaws.com
-URL02.5(index.html)=https://udapeople-633e261.s3.amazonaws.com/index.html
+URL02=http://udapeople-e238201.s3-website-us-east-1.amazonaws.com
+URL02.5(index.html)=https://udapeople-e238201.s3.amazonaws.com/index.html
 # Cloudfront Distro Public
 URL03=db0c5itczyuxf.cloudfront.net
 # Backend in EC2 Public
-URL04=http://54.174.197.78:3030/api/status
+URL04=http://3.88.193.31:3030/api/status
 # Prometheus Server Public
 URL05=http://54.211.72.131:9090/targets
