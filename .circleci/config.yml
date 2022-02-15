@@ -250,8 +250,7 @@ jobs:
           root: ~/
           paths:
             - project/.circleci/ansible/inventory.txt
-      - destroy-environment:
-          workflow_id: "udapeople-frontend-${CIRCLE_WORKFLOW_ID:0:7}.udapeople-backend-${CIRCLE_WORKFLOW_ID:0:7}"
+      - destroy-environment
 
   configure-infrastructure:
     docker:
@@ -267,8 +266,7 @@ jobs:
             cd .circleci/ansible; \
             export ANSIBLE_HOST_KEY_CHECKING=False; \
             ansible-playbook -i inventory.txt configure-server.yml
-      - destroy-environment:
-          workflow_id: "udapeople-frontend-${CIRCLE_WORKFLOW_ID:0:7}.udapeople-backend-${CIRCLE_WORKFLOW_ID:0:7}"
+      - destroy-environment
 
   ### RUN MIGRATIONS AND DEPLOY MODULES ###
 
@@ -298,8 +296,7 @@ jobs:
             else 
               curl https://kvdb.io/M4vz8dTqMaBinouJP2Au3t/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '0' -k
             fi
-      - destroy-environment:
-          workflow_id: "udapeople-frontend-${CIRCLE_WORKFLOW_ID:0:7}.udapeople-backend-${CIRCLE_WORKFLOW_ID:0:7}"
+      - destroy-environment
 
   deploy-frontend:
     docker:
@@ -318,8 +315,7 @@ jobs:
             npm run build
             tar -czvf artifact-"${CIRCLE_WORKFLOW_ID:0:7}".tar.gz dist
             aws s3 cp dist s3://udapeople-${CIRCLE_WORKFLOW_ID:0:7} --recursive
-      - destroy-environment:
-          workflow_id: "udapeople-frontend-${CIRCLE_WORKFLOW_ID:0:7}.udapeople-backend-${CIRCLE_WORKFLOW_ID:0:7}"
+      - destroy-environment
                  
   deploy-backend:
     docker:
@@ -340,10 +336,8 @@ jobs:
             tar -C backend -czvf artifact.tar.gz .
             cd .circleci/ansible
             ansible-playbook -i inventory.txt deploy-backend.yml
-      - revert-migrations:
-          workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}  
-      - destroy-environment:
-          workflow_id: "udapeople-frontend-${CIRCLE_WORKFLOW_ID:0:7}.udapeople-backend-${CIRCLE_WORKFLOW_ID:0:7}"
+      - revert-migrations
+      - destroy-environment
 
   ### SMOKE TEST BEFORE UPDATING CLOUDFRONT AND CLEANUP ###
 
@@ -374,10 +368,8 @@ jobs:
             else
               return 1
             fi
-      - revert-migrations:
-          workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}    
-      - destroy-environment:
-          workflow_id: "udapeople-frontend-${CIRCLE_WORKFLOW_ID:0:7}.udapeople-backend-${CIRCLE_WORKFLOW_ID:0:7}"
+      - revert-migrations
+      - destroy-environment
 
   cloudfront-update:
     docker:
@@ -393,10 +385,8 @@ jobs:
               --stack-name InitialStack \
               --parameter-overrides WorkflowID="${CIRCLE_WORKFLOW_ID:0:7}" \
               --tags project=udapeople
-      - revert-migrations:
-          workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}    
-      - destroy-environment:
-          workflow_id: "udapeople-frontend-${CIRCLE_WORKFLOW_ID:0:7}.udapeople-backend-${CIRCLE_WORKFLOW_ID:0:7}"
+      - revert-migrations
+      - destroy-environment
   
   cleanup:
       docker:
