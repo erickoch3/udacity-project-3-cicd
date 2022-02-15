@@ -78,7 +78,7 @@ commands:
         type: string
     steps:
       - run:
-          name: << paramters.module >> build
+          name: << parameters.module >> build
           command: |
             cd << parameters.module >>
             npm install
@@ -91,7 +91,7 @@ commands:
         type: string
     steps:
       - run:
-          name: << paramters.module >> test
+          name: << parameters.module >> test
           command: |
             cd << parameters.module >>
             npm install
