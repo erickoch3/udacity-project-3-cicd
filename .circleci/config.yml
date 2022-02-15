@@ -39,7 +39,7 @@ commands:
   ### COMMANDS TO INSTALL DEPENDENCIES ###
 
   install-aws-cli-dependencies:
-    descriptions: Install dependencies for aws-cli docker
+    description: Install dependencies for aws-cli docker
     steps:
       - run:
           name: Install dependencies
@@ -49,7 +49,7 @@ commands:
             yum install nodejs npm -y
 
   install-alpine-dependencies:
-    descriptions: Install dependencies we use on alpine docker
+    description: Install dependencies we use on alpine docker
     steps:
       - run:
           name: Install dependencies
@@ -59,7 +59,7 @@ commands:
             pip3 install --no-cache-dir awscli;
 
   install-node-dependencies:
-    descriptions: Install dependencies we use on node docker
+    description: Install dependencies we use on node docker
     steps:
       - run:
           name: Install dependencies
